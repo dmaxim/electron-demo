@@ -23,4 +23,18 @@ module.exports = () => {
         if (buttonIndex === 0) autoUpdater.downloadUpdate();
       });
   });
+
+  autoUpdater.on("update-downloaded", () => {
+    dialog
+      .showMessageBox({
+        type: "info",
+        title: "Update ready",
+        message: "Install and restart now?",
+        buttons: ["Yes", "Later"],
+      })
+      .then((result) => {
+        let buttonIndex = result.response;
+        if (buttonIndex === 0) autoUpdater.quitAndInstall(false, true);
+      });
+  });
 };
