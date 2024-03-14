@@ -36,16 +36,6 @@ It was necessary to download the certificate from the Apple Developer site and i
 
 ## Windows Code Signing
 
-Yesterday
-
-- Started working through the process of deploying an Electron application with code signing
-- Worked with Ronaldo to fix a TLS / certificate issue with fm gateway ingress in production (It looks like the develop branch of the fort-frotend has the correct ingress configuration - this should be merged to master at some point)
-
-Today
-
-- Test deployments of Electron applications
-- Work on highlevel architecture document for the proactive safety proof of concept
-
 ## Publishing releases
 
 - Electron auto-updater - requires a server to host the updates
@@ -55,3 +45,8 @@ Today
 ### GitHub releases
 
 - Part of GitHub code repo
+- Update repository in package.json to point at the GitHub repo
+- Create a draft release in GitHub
+- Setup personal access token to allow Electron Builder to access the GitHub repo
+- Store the token in an environment variable GH_TOKEN
+- Update the package.json to add a release script and the GitHub publish provider

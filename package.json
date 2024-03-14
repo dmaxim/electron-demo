@@ -7,7 +7,8 @@
     "start": "electron .",
     "watch": "nodemon --exec electron .",
     "reset": "git reset --hard",
-    "build": "electron-builder -m"
+    "build": "electron-builder -m",
+    "release": "electron-builder -m -p 'onTagOrDraft'"
   },
   "repository": "https://github.com/dmaxim/electron-demo",
   "homepage": "https://github.com/dmaxim/electron-demo",
@@ -29,16 +30,15 @@
   "build": {
     "appId": "com.mxinformatics.readit",
     "copyright": "MxInformatics",
+    "publish": {
+      "provider": "github"
+    },
     "mac": {
-      "category": "public.app-category.productivity",
-      "target": "zip"
+      "category": "public.app-category.productivity"
     },
-    "win": {
-      "target": "zip"
-    },
+    "win": {},
     "linux": {
-      "category": "Utility",
-      "target": "zip"
+      "category": "Utility"
     }
   }
 }
