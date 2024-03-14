@@ -50,3 +50,18 @@ It was necessary to download the certificate from the Apple Developer site and i
 - Setup personal access token to allow Electron Builder to access the GitHub repo
 - Store the token in an environment variable GH_TOKEN
 - Update the package.json to add a release script and the GitHub publish provider
+- Create release locally
+
+```
+GH_TOKEN=<your token> npm run release
+```
+
+### AutoUpdater
+
+```
+npm i electron-updater
+```
+
+- Add the code for enabling the auto-updater
+- Enable logging for debugging
+- Mac log location ~/Library/Logs/ReadIt/main.log
