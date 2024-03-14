@@ -9,7 +9,8 @@
     "reset": "git reset --hard",
     "build": "electron-builder -m"
   },
-  "repository": "https://github.com/stackacademytv/master-electron",
+  "repository": "https://github.com/dmaxim/electron-demo",
+  "homepage": "https://github.com/dmaxim/electron-demo",
   "keywords": [
     "Electron",
     "Master Electron",
