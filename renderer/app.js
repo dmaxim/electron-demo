@@ -8,6 +8,7 @@ let modal = document.getElementById("modal");
 let addItem = document.getElementById("add-item");
 let itemUrl = document.getElementById("url");
 let search = document.getElementById("search");
+let clearList = document.getElementById("clear-list");
 
 search.addEventListener("keyup", (e) => {
   Array.from(document.getElementsByClassName("read-item")).forEach((item) => {
@@ -56,6 +57,9 @@ addItem.addEventListener("click", (e) => {
   }
 });
 
+clearList.addEventListener("click", (e) => {
+  items.clear();
+});
 // Listen for keyboard submit
 itemUrl.addEventListener("keyup", (e) => {
   if (e.key === "Enter") addItem.click();

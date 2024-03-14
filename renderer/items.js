@@ -74,6 +74,11 @@ exports.open = () => {
   readerWin.eval(readerJS);
 };
 
+exports.clear = () => {
+  this.storage = [];
+  this.save();
+  items.innerHTML = "";
+};
 this.storage.forEach((item) => {
   this.addItem(item);
 });
