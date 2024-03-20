@@ -8,7 +8,7 @@
     "watch": "nodemon --exec electron .",
     "reset": "git reset --hard",
     "build": "electron-builder -m",
-    "release": "electron-builder -mwl -p 'onTagOrDraft'"
+    "release": "electron-builder -m -p 'onTagOrDraft'"
   },
   "repository": "https://github.com/dmaxim/electron-demo",
   "homepage": "https://github.com/dmaxim/electron-demo",
@@ -22,6 +22,7 @@
   "devDependencies": {
     "electron": "^29.1.1",
     "electron-builder": "^24.13.3",
+    "electron-notarize": "^1.2.2",
     "nodemon": "^3.1.0"
   },
   "dependencies": {
@@ -32,6 +33,7 @@
   "build": {
     "appId": "com.mxinformatics.readit",
     "copyright": "MxInformatics",
+    "afterSign": "build/notarize.js",
     "publish": {
       "provider": "github"
     },

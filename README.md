@@ -65,3 +65,61 @@ npm i electron-updater
 - Add the code for enabling the auto-updater
 - Enable logging for debugging
 - Mac log location ~/Library/Logs/ReadIt/main.log
+
+## Notarization
+
+Dealing with MacOS Gatekeeper
+
+### Need Gatekeeper command line tools
+
+Check gatekeeper status
+
+```
+sudo spctl --status
+```
+
+Enable if necessary
+
+```
+sudo spctl --master-enable
+```
+
+Disable
+
+```
+sudo spctl --master-disable
+```
+
+Test The app
+
+```
+sudo spctl --assess dist/mac-arm64/ReadIt.app
+```
+
+## Build App With Notarization
+
+Using electron-notarize
+
+```
+npm i -D electron-notarize
+```
+
+### Requirements for notarization
+
+- Xcode installed
+- Apple Developer account
+- App specific password for your ADC account's apple id
+- App may ned to be signed with hardened runtime
+
+Create App Specific Password via Apple ID Account
+https://appleid.apple.com
+
+App Specific Passwords - Generate Password
+
+Update package.json (AfterSign)
+
+Build using notarization
+
+```
+appleId=<your apple id> appleIdPassword=<your app specific password> npm run build
+```
