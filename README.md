@@ -123,3 +123,18 @@ Build using notarization
 ```
 appleId=<your apple id> appleIdPassword=<your app specific password> npm run build
 ```
+
+Error: xcrun: error: unable to find utility "altool", not a developer tool or in PATH
+
+Fix
+
+```
+sudo xcode-select -r
+```
+
+Troubeshooting error authenticating with Apple
+
+- altool is deprecated
+  xcrun altool --notarization-history 0 -u <your apple id> -p <your app specific password> --verbose --output-format xml
+
+xcrun notarytool history --apple-id <email address> --password <password> --output-format json --team-id <need this>
