@@ -1,14 +1,16 @@
 {
   "name": "ReadIt",
-  "version": "1.1.0",
+  "version": "1.1.3",
   "description": "Master Electron Project",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "watch": "nodemon --exec electron .",
     "reset": "git reset --hard",
-    "build": "electron-builder -m",
-    "release": "electron-builder -m -p 'onTagOrDraft'"
+    "build": "electron-builder -w",
+    "pack": "electron-builder -wl --dir",
+    "release": "electron-builder -wl -p 'onTagOrDraft'",
+    "postinstall": "electron-builder install-app-deps"
   },
   "repository": "https://github.com/dmaxim/electron-demo",
   "homepage": "https://github.com/dmaxim/electron-demo",
@@ -17,7 +19,7 @@
     "Master Electron",
     "demo"
   ],
-  "author": "GitHub, Stackacademytv",
+  "author": "Dan Maxim",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^29.1.1",
@@ -33,14 +35,20 @@
   "build": {
     "appId": "com.mxinformatics.readit",
     "copyright": "MxInformatics",
-    "afterSign": "build/notarize.js",
-    "publish": {
-      "provider": "github"
-    },
+    "publish": "github",
     "mac": {
       "category": "public.app-category.productivity"
     },
-    "win": {},
+    "win": {
+      "certificateFile": "private/fort-dev-cert.p12",
+      "verifyUpdateCodeSignature": false,
+      "target": {
+        "target": "zip",
+        "arch": [
+          "x64"
+        ]
+      }
+    },
     "linux": {
       "category": "Utility"
     }

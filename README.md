@@ -138,3 +138,10 @@ Troubeshooting error authenticating with Apple
   xcrun altool --notarization-history 0 -u <your apple id> -p <your app specific password> --verbose --output-format xml
 
 xcrun notarytool history --apple-id <email address> --password <password> --output-format json --team-id <need this>
+
+```
+rm -rf dist
+appleId='dan.maxim@fortrobotics.com' appleIdPassword='rxdf-ypqs-mtrj-pphj' npm run build
+```
+
+xcrun altool --notarization-history 0 -u 'dan.maxim@fortrobotics.com' -p 'rxdf-ypqs-mtrj-pphj' --debug --output-format xml
