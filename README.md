@@ -145,3 +145,22 @@ appleId='dan.maxim@fortrobotics.com' appleIdPassword='rxdf-ypqs-mtrj-pphj' npm r
 ```
 
 xcrun altool --notarization-history 0 -u 'dan.maxim@fortrobotics.com' -p 'rxdf-ypqs-mtrj-pphj' --debug --output-format xml
+
+## Signing Exe On Windows
+
+### Self Signed Cert
+
+Generate Cert 
+
+````
+
+New-SelfSignedCertificate -DnsName dmaxim@mxinformatics.com -Type CodeSigning -CertStoreLocation cert:\CurrentUser\My
+
+Export-Certificate -Cert (Get-ChildItem Cert:\CurrentUser\My -CodeSigningCert)[0] -FilePath code_signing.crt
+
+Import-Certificate -FilePath .\code_signing.crt -Cert Cert:\CurrentUser\TrustedPublisher
+
+Import-Certificate -FilePath .\code_signing.crt -Cert Cert:\CurrentUser\Root
+
+
+````
