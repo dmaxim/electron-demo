@@ -8,8 +8,8 @@
     "watch": "nodemon --exec electron .",
     "reset": "git reset --hard",
     "build": "electron-builder -w",
-    "pack": "electron-builder -wl --dir",
-    "release": "electron-builder -wl -p 'onTagOrDraft'",
+    "pack": "electron-builder -l --dir",
+    "release": "electron-builder -l -p 'always'",
     "postinstall": "electron-builder install-app-deps"
   },
   "repository": "https://github.com/dmaxim/electron-demo",
@@ -50,7 +50,8 @@
       }
     },
     "linux": {
-      "category": "Utility"
+      "category": "Utility",
+      "target" : "AppImage"
     }
   }
 }
